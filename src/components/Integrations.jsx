@@ -30,7 +30,7 @@ const Integrations = () => {
   };
 
   return (
-    <section className="bg-black text-white py-20 px-6">
+    <section className="bg-black text-white py-20 px-6 overflow-hidden">
       <div className="container mx-auto max-w-5xl text-center">
         <h2 className="text-3xl font-bold mb-4">
           Integrate with Your Favorite Tools

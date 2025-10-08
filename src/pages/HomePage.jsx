@@ -22,16 +22,14 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-black relative">
+      <div className="min-h-screen bg-black relative overflow-hidden">
         <div 
           className="absolute top-1/2 left-1/2 w-[1000px] h-[1000px] 
                      -translate-x-1/2 -translate-y-1/2 
                      bg-blue-900/20 rounded-full blur-3xl pointer-events-none"
         />
-        <div className="relative z-10">
+        <div className="relative z-10 overflow-hidden">
           <Header onBookNow={() => setRegisterOpen(true)} />
-          
-          {/* 👇 About section reference for scroll target */}
           <About ref={aboutSectionRef} />
 
           <WhatYoullBuild />
