@@ -27,7 +27,6 @@ const reviews = [
 const Reviews = () => {
   return (
     <section className="bg-black text-white py-20 px-6 overflow-hidden">
-      {/* The max-width class here has been changed to max-w-7xl */}
       <div className="container mx-auto max-w-8xl text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-12">
           What Our Alumni Say
@@ -45,7 +44,7 @@ const Reviews = () => {
               <div className="bg-neutral-900/80 border border-neutral-700 rounded-2xl p-8 text-left h-full">
                 <p className="text-gray-300 mb-6">"{review.review}"</p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold text-black mr-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white mr-4">
                     {review.name.charAt(0)}
                   </div>
                   <div>

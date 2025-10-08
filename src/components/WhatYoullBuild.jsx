@@ -25,39 +25,42 @@ const WhatYoullBuild = () => {
   ];
   
   return (
-    <section className="bg-black text-white py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+    <section className="bg-black text-white py-20">
+      <div className="container mx-auto max-w-6xl text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">
           What You’ll Build 
         </h2>
-        <div className="space-y-24">
+        <p className="text-gray-400 text-lg mb-24">A look at the portfolio-ready projects you'll complete.</p>
+        
+        <div className="space-y-32">
           {projects.map((project, index) => (
-            <div key={project.title} className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div key={project.title} className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center px-6">
               
-              {/* Text Column */}
-              <motion.div 
-                className={`text-left ${index % 2 !== 0 ? 'md:order-last' : ''}`}
-                initial={{ opacity: 0, x: index % 2 !== 0 ? 100 : -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, type: 'spring' }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <h3 className="text-3xl font-bold text-white mb-4">{project.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{project.description}</p>
-              </motion.div>
-
               {/* Image Column */}
               <motion.div
-                initial={{ opacity: 0, x: index % 2 !== 0 ? -100 : 100 }}
+                className="flex justify-center"
+                initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, type: 'spring' }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ amount: 0.5 }} // 'once: true' removed
               >
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-2/3 mx-auto rounded-lg shadow-2xl shadow-green-900/40"
+                  className="w-2/3 rounded-lg shadow-2xl shadow-blue-900/40"
                 />
+              </motion.div>
+              
+              {/* Text Column */}
+              <motion.div 
+                className="text-left"
+                initial={{ opacity: 0, x: -100 }} // Changed to slide from left
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, type: 'spring', delay: 0.2 }} // Added a delay
+                viewport={{ amount: 0.5 }} // 'once: true' removed
+              >
+                <h3 className="text-3xl font-bold text-white mb-4">{project.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{project.description}</p>
               </motion.div>
 
             </div>

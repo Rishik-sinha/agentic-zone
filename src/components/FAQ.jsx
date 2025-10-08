@@ -15,14 +15,14 @@ const faqData = [
     answer: 'No. The workshop starts with a Python basics refresher. As long as you have some basic programming curiosity, you\'ll be able to follow along.'
   },
   {
-    question: 'What will I build by the end of the 3 days?',
+    question: 'What will I build by the end of the 7 days?',
     answer: 'You will build and deploy a fully functional, portfolio-ready AI Automation project, such as an intelligent email auto-agent or a conversational lead bot. You will also receive a certificate of completion.'
   }
 ];
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border-b border-gray-700/50">
+    <div className="border-b border-blue-500/20">
       <button
         onClick={onClick}
         className="w-full flex justify-between items-center text-left py-6"
@@ -33,7 +33,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
           transition={{ duration: 0.3 }}
           className="ml-4"
         >
-          <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+          <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
         </motion.div>
       </button>
       <AnimatePresence>
@@ -56,8 +56,8 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
 };
 
 const FaqIcon = () => (
-    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-green-900/50 border border-green-500/30 mb-4">
-        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-900/50 border border-blue-500/30 mb-4">
+        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
     </div>
 );
 
@@ -69,20 +69,30 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-black py-20 px-6">
+    <section className="bg-black py-20 px-6 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
           
-          {/* Left Column: Title -- Added -ml-4 here */}
-          <div className="md:col-span-1 -ml-4">
+          <motion.div 
+            className="md:col-span-1 -ml-4"
+            initial={{ opacity: 0, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.8 }}
+            viewport={{ amount: 0.5 }}
+          >
             <FaqIcon />
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               FAQs about AI Automation
             </h2>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Accordion */}
-          <div className="md:col-span-2">
+          <motion.div 
+            className="md:col-span-2"
+            initial={{ opacity: 0, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ amount: 0.5 }}
+          >
             {faqData.map((faq, index) => (
               <AccordionItem
                 key={index}
@@ -92,7 +102,7 @@ const FAQ = () => {
                 onClick={() => handleClick(index)}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
