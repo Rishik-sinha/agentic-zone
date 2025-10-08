@@ -62,7 +62,7 @@ const RegistrationForm = () => {
       
       <form 
         onSubmit={handleSubmit} 
-        className="holographic-form backdrop-blur-sm p-8 rounded-2xl border border-blue-500/30"
+        className="holographic-form backdrop-blur-sm p-4 md:p-8 rounded-2xl border border-blue-500/30"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required className="bg-black/30 text-white p-3 rounded-md border border-blue-700/50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
